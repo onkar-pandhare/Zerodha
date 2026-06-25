@@ -10,29 +10,29 @@ function LeftSection() {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  setError("");
+  try {
+    const { data } = await axios.post(
+      `${process.env.REACT_APP_BACKEND_URL}/login`,
+      { email: formData.email, password: formData.password },
+      { withCredentials: true }
+    );
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setError("");
-    try {
-      const { data } = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/login`,
-        { email: formData.email, password: formData.password },
-        { withCredentials: true }
-      );
+    console.log("Backend response:", data);  // ← add this
+    console.log("Dashboard URL:", process.env.REACT_APP_DASHBOARD_URL);  // ← add this
 
     if (data.success) {
-  console.log("Success! Redirecting to:", process.env.REACT_APP_DASHBOARD_URL);
-  window.location.href = process.env.REACT_APP_DASHBOARD_URL;
-} else {
-  console.log("Login failed:", data.message);
-  setError(data.message);
-}
-    } catch (err) {
-      setError("Something went wrong. Please try again.");
+      window.location.href = process.env.REACT_APP_DASHBOARD_URL;
+    } else {
+      setError(data.message);
     }
-  };
-
+  } catch (err) {
+    console.log("Error:", err);  // ← add this
+    setError("Something went wrong. Please try again.");
+  }
+};
   return (
     <div className="container mt-3">
       <div className="row">
