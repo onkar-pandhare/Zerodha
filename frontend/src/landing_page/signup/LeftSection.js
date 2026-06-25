@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function LeftSection() {
   const navigate = useNavigate();
@@ -147,9 +148,9 @@ function LeftSection() {
             </p>
             <p className="fs-6 text-center mt-3">
               Already have an account?{" "}
-              <a href="/login" className="text-decoration-none fw-semibold">
-                Login
-              </a>
+            <Link to="/login" className="text-decoration-none fw-semibold">
+  Login
+</Link>
             </p>
           </div>
         </div>
