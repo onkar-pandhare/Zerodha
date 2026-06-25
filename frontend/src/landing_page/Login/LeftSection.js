@@ -21,12 +21,13 @@ function LeftSection() {
         { withCredentials: true }
       );
 
-      if (data.success) {
-        // ✅ Redirect to dashboard Home after login
-      window.location.href = process.env.REACT_APP_DASHBOARD_URL;
-      } else {
-        setError(data.message);
-      }
+    if (data.success) {
+  console.log("Success! Redirecting to:", process.env.REACT_APP_DASHBOARD_URL);
+  window.location.href = process.env.REACT_APP_DASHBOARD_URL;
+} else {
+  console.log("Login failed:", data.message);
+  setError(data.message);
+}
     } catch (err) {
       setError("Something went wrong. Please try again.");
     }
