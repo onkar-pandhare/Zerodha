@@ -219,9 +219,11 @@ app.get("/getUser", verifyToken, async (req, res) => {
 // ✅ Logout — clear cookie
 app.get("/logout", (req, res) => {
   res.cookie("token", "", {
-    httpOnly: false,
-    expires: new Date(0),  // ← expire cookie immediately
-  });
+  httpOnly: false,
+  secure: true,
+  sameSite: "none",
+  expires: new Date(0),
+});
   res.status(200).json({ message: "Logged out successfully", success: true });
 });
 
