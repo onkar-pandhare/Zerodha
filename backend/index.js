@@ -20,7 +20,12 @@ const app = express();
 
 // ✅ Middleware FIRST
 app.use(cors({
-  origin: ["http://localhost:3000", "http://localhost:3001"],
+  origin: [
+    "http://localhost:3000",
+    "http://localhost:3001",
+    "https://zerodha-frontend-suna.onrender.com",
+    "https://zerodha-dashboard-ymjo.onrender.com",
+  ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
