@@ -43,7 +43,7 @@ function LeftSection() {
 
     try {
       const { data } = await axios.post(
-        `${process.env.REACT_APP_BACKEND_URL}/signup`,
+         "https://zerodha-backend-38uf.onrender.com/signup",
         {
           username: formData.username,
           email: formData.email,
@@ -53,7 +53,7 @@ function LeftSection() {
       );
 
       if (data.success) {
-      window.location.href = process.env.REACT_APP_DASHBOARD_URL;
+      window.location.href = "https://zerodha-dashboard-ymjo.onrender.com";
       } else {
         setError(data.message);
       }

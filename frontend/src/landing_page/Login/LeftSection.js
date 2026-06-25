@@ -15,7 +15,7 @@ const handleSubmit = async (e) => {
   setError("");
   try {
     const { data } = await axios.post(
-      `${process.env.REACT_APP_BACKEND_URL}/login`,
+      "https://zerodha-backend-38uf.onrender.com/login",
       { email: formData.email, password: formData.password },
       { withCredentials: true }
     );
