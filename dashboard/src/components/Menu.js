@@ -10,8 +10,7 @@ const Menu = () => {
 
   // ✅ Fetch logged in user
   useEffect(() => {
-    axios
-      .get("http://localhost:3002/getUser", { withCredentials: true })
+   axios.get(`${process.env.REACT_APP_BACKEND_URL}/getUser`, { withCredentials: true })
       .then((res) => {
         if (res.data.success) {
           const name = res.data.user.name;

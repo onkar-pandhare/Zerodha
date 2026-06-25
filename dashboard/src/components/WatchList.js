@@ -16,8 +16,7 @@ const WatchList = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3002/liveWatchlist")
+   axios.get(`${process.env.REACT_APP_BACKEND_URL}/liveWatchlist`)
       .then((res) => {
         if (res.data && res.data.length > 0) {
           setWatchlist(res.data);   // ✅ use live data

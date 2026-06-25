@@ -13,8 +13,7 @@ const Holdings = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3002/allHoldings")
+   axios.get(`${process.env.REACT_APP_BACKEND_URL}/allHoldings`)
       .then((res) => {
         setAllHoldings(res.data);
         setLoading(false);

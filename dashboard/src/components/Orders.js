@@ -7,8 +7,7 @@ const Orders = () => {
   const [error, setError] = useState("");
 
  useEffect(() => {
-  axios
-    .get("http://localhost:3002/allOrders", { withCredentials: true })  // ← send cookie
+  axios.get(`${process.env.REACT_APP_BACKEND_URL}/allOrders`, { withCredentials: true })  // ← send cookie
     .then((res) => {
       setAllOrders(res.data);
       setLoading(false);
