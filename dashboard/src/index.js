@@ -1,28 +1,30 @@
 // dashboard/src/index.js
 import React from "react";
 import ReactDOM from "react-dom/client";
-import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./index.css";
 import Home from "./components/Home";
 
-// Check for the JWT cookie set by backend
 const isAuthenticated = () =>
   document.cookie.split(';').some(c => c.trim().startsWith('token='));
+
+// ✅ Use useEffect for external redirect
+const ProtectedHome = () => {
+  React.useEffect(() => {
+    if (!isAuthenticated()) {
+      window.location.href = `${process.env.REACT_APP_FRONTEND_URL}/login`;
+    }
+  }, []);
+
+  return isAuthenticated() ? <Home /> : null;
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        {/* ✅ Protected: redirect to frontend login if no token */}
-        <Route
-          path="/*"
-          element={
-            isAuthenticated()
-              ? <Home />
-              : <Navigate to="http://localhost:3000/login" replace />
-          }
-        />
+        <Route path="/*" element={<ProtectedHome />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
