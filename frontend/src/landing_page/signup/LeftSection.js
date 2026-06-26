@@ -42,19 +42,15 @@ function LeftSection() {
     setLoading(true);
 
     try {
-      const { data } = await axios.post(
-         "https://zerodha-backend-38uf.onrender.com/signup",
-        {
-          username: formData.username,
-          email: formData.email,
-          password: formData.password,
-        },
-        { withCredentials: true }
-      );
+    const { data } = await axios.post(
+  "https://zerodha-backend-xvmy.onrender.com/signup",
+  { username: formData.username, email: formData.email, password: formData.password },
+  { withCredentials: true }
+);
 
-      if (data.success) {
-      window.location.href = "https://zerodha-dashboard-ymjo.onrender.com";
-      } else {
+if (data.success) {
+  window.location.href = "https://zerodha-dashboard-xxx.onrender.com"; // will update after dashboard deploys
+}else {
         setError(data.message);
       }
     } catch (err) {

@@ -23,8 +23,8 @@ app.use(cors({
   origin: [
     "http://localhost:3000",
     "http://localhost:3001",
-    "https://zerodha-frontend-suna.onrender.com",
-    "https://zerodha-dashboard-ymjo.onrender.com",
+    "https://zerodha-frontend-xxx.onrender.com",  // will update
+    "https://zerodha-dashboard-xxx.onrender.com", // will update
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,

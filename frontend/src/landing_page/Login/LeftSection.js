@@ -14,18 +14,15 @@ const handleSubmit = async (e) => {
   e.preventDefault();
   setError("");
   try {
-    const { data } = await axios.post(
-      "https://zerodha-backend-38uf.onrender.com/login",
-      { email: formData.email, password: formData.password },
-      { withCredentials: true }
-    );
+   const { data } = await axios.post(
+  "https://zerodha-backend-xvmy.onrender.com/login",
+  { email: formData.email, password: formData.password },
+  { withCredentials: true }
+);
 
-    console.log("Backend response:", data);  // ← add this
-    console.log("Dashboard URL:", process.env.REACT_APP_DASHBOARD_URL);  // ← add this
-
-    if (data.success) {
-      window.location.href = "https://zerodha-dashboard-ymjo.onrender.com";
-    } else {
+if (data.success) {
+  window.location.href = "https://zerodha-dashboard-xxx.onrender.com"; // will update after dashboard deploys
+} else {
       setError(data.message);
     }
   } catch (err) {

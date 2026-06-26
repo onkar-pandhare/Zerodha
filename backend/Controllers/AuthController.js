@@ -49,7 +49,6 @@ module.exports.Login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
 
-    // ✅ Validate fields
     if (!email || !password) {
       return res.status(400).json({ message: "All fields are required", success: false });
     }
@@ -66,15 +65,15 @@ module.exports.Login = async (req, res, next) => {
 
     const token = createSecretToken(user._id);
     res.cookie("token", token, {
-      withCredentials: true,
       httpOnly: false,
+      secure: true,        // ← fixed
+      sameSite: "none",    // ← fixed
     });
 
     res.status(200).json({ message: "User logged in successfully", success: true });
     next();
   } catch (error) {
     console.error("Login error:", error);
-    // ✅ Always send response even on error
     res.status(500).json({ message: "Internal server error", success: false });
   }
 };
