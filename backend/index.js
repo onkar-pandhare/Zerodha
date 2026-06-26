@@ -23,12 +23,13 @@ app.use(cors({
   origin: [
     "http://localhost:3000",
     "http://localhost:3001",
-    "https://zerodha-frontend-xxx.onrender.com",  // will update
-    "https://zerodha-dashboard-xxx.onrender.com", // will update
+    "https://zerodha-frontend-7emh.onrender.com",
+    "https://zerodha-dashboard-uhp9.onrender.com",
   ],
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true,
 }));
+
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(cookieParser());

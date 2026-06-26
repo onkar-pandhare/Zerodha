@@ -13,7 +13,7 @@ const Holdings = () => {
   const [error, setError] = useState("");
 
   useEffect(() => {
-   axios.get(`${process.env.REACT_APP_BACKEND_URL}/allHoldings`)
+   axios.get("https://zerodha-backend-xvmy.onrender.com/allHoldings")
       .then((res) => {
         setAllHoldings(res.data);
         setLoading(false);

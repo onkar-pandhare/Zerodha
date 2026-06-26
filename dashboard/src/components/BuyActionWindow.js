@@ -12,7 +12,7 @@ const BuyActionWindow = ({ uid }) => {
   const [stockPrice, setStockPrice] = useState(0.0);
 
  const handleBuyClick = () => {
- axios.get(`${process.env.REACT_APP_BACKEND_URL}/newOrder`,
+ axios.get("https://zerodha-backend-xvmy.onrender.com/newOrder",
   { name: uid, qty: stockQuantity, price: stockPrice, mode: "BUY" },
   { withCredentials: true }   // ← add this
 );

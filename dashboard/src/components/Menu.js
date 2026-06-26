@@ -33,16 +33,15 @@ const Menu = () => {
 
   // ✅ Logout handler
   const handleLogout = async () => {
-    try {
-      await axios.get("http://localhost:3002/logout", {
-        withCredentials: true,
-      });
-      // ✅ Redirect to login page after logout
-      window.location.href = "http://localhost:3000/login";
-    } catch (err) {
-      console.error("Logout failed:", err);
-    }
-  };
+  try {
+    await axios.get("https://zerodha-backend-xvmy.onrender.com/logout", {
+      withCredentials: true,
+    });
+    window.location.href = "https://zerodha-frontend-7emh.onrender.com/login";
+  } catch (err) {
+    console.error("Logout failed:", err);
+  }
+};
 
   const handleMenuClick = (index) => {
     setSelectedMenu(index);

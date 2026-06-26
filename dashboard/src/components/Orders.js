@@ -7,7 +7,7 @@ const Orders = () => {
   const [error, setError] = useState("");
 
  useEffect(() => {
-  axios.get(`${process.env.REACT_APP_BACKEND_URL}/allOrders`, { withCredentials: true })  // ← send cookie
+  axios.get("https://zerodha-backend-xvmy.onrender.com/allOrders", { withCredentials: true })  // ← send cookie
     .then((res) => {
       setAllOrders(res.data);
       setLoading(false);

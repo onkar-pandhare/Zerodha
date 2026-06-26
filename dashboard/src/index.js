@@ -12,7 +12,7 @@ const isAuthenticated = () =>
 const ProtectedHome = () => {
   React.useEffect(() => {
     if (!isAuthenticated()) {
-      window.location.href = `${process.env.REACT_APP_FRONTEND_URL}/login`;
+       window.location.href = "https://zerodha-frontend-7emh.onrender.com/login";
     }
   }, []);
 

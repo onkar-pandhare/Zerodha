@@ -49,7 +49,7 @@ function LeftSection() {
 );
 
 if (data.success) {
-  window.location.href = "https://zerodha-dashboard-xxx.onrender.com"; // will update after dashboard deploys
+   window.location.href = "https://zerodha-dashboard-uhp9.onrender.com"; // will update after dashboard deploys
 }else {
         setError(data.message);
       }

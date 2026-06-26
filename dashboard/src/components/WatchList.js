@@ -16,7 +16,7 @@ const WatchList = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-   axios.get(`${process.env.REACT_APP_BACKEND_URL}/liveWatchlist`)
+   axios.get("https://zerodha-backend-xvmy.onrender.com/liveWatchlist")
       .then((res) => {
         if (res.data && res.data.length > 0) {
           setWatchlist(res.data);   // ✅ use live data
