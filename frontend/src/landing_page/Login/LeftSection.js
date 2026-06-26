@@ -24,7 +24,7 @@ const handleSubmit = async (e) => {
     console.log("Dashboard URL:", process.env.REACT_APP_DASHBOARD_URL);  // ← add this
 
     if (data.success) {
-      window.location.href = process.env.REACT_APP_DASHBOARD_URL;
+      window.location.href = "https://zerodha-dashboard-ymjo.onrender.com";
     } else {
       setError(data.message);
     }
